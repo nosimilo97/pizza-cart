@@ -1,0 +1,179 @@
+body {
+    background-color: #3FA9E2;
+    font-family: Roboto;
+    ;
+}
+
+.medium_pizza {
+    background-color:  #E2AE3D;
+    border-radius: 4px;
+    flex: 1;
+}
+
+.large_pizza {
+    background-color: #E06733;
+    border-radius: 4px;
+    
+    flex: 1;
+}
+
+.small_pizza {
+    background-color: #E03571;
+    border-radius: 4px;
+    
+    flex: 1;
+}
+
+.flavor {
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid #C4C4C4;
+   
+}
+
+li {
+   
+   
+  
+     list-style: none;
+   left: -10.87px;
+}
+
+.details {
+
+font-size: 14px;
+font-weight: 400;
+line-height: 16.41px;
+text-align: left;
+margin-bottom: 2em;
+}
+/*.info {
+ display:inline-block;
+ 
+} */
+
+.contact_info{
+    background-color: #CDD93F;
+    border-radius: 4px;
+    
+  display: flex;
+}
+
+h1 {
+    border: none;
+   
+font-size: 24px;
+font-weight: 700;
+line-height: 28.13px;
+text-align: center;
+padding: 1em;
+margin: 1em;
+
+}
+img {
+    background-color: white;
+    padding: 0.3em;
+}
+
+h2 {
+    
+font-size: 24px;
+font-weight: 700;
+line-height: 28.13px;
+text-align: left;
+
+}
+@media (min-Width: 960px ) {
+    .pizza_prices {
+        display: flex;
+    }
+    h1 {
+        border: 1px solid #C4C4C4;
+    }
+
+}
+
+td {
+    padding: 10px; 
+    border: 0px ;
+    width:20%;
+    border-radius: 10px;
+}
+
+.container {
+    background-color: #CDD93F;
+    border: 1px solid #C4C4C4;
+    border-radius: 4px;
+    text-align: center;
+}
+.shopping-cart {
+    text-align: center;
+    padding: 1em;
+}
+.checkout {
+    margin-bottom: 1.5em;
+    background-color: lightgrey;
+    border: 1px solid lightgrey;
+    padding: 1em;
+    border-radius: 4px;
+    font-weight: bolder;
+}
+.inputMoney {
+    background-color: lightgrey;
+    border: 1px solid lightgrey;
+    padding: 1em;
+    box-shadow: 5px 5px rgb(206, 188, 188);
+}
+.paynow {
+    margin-bottom: 1.5em;
+}
+
+.pay {
+    
+/* padding-left: 2em;
+padding-right: 2em; */
+background-color: lightgrey;
+border: 1px;
+border-radius: 4px;
+font-weight:bolder ;
+padding: 1.5em;
+margin-top: 1em;
+text-align: center;
+}
+.Message {
+    text-align: center;
+    color: red;
+}
+
+.buy {
+    text-align: center;
+   padding-left: 3em;
+   padding-right: 3em;
+    display: block;
+    margin: 0 auto;
+    background-color: lightgrey;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+   font-weight: bolder;
+
+}
+
+.contacts-detail {
+    background-color: #CDD93F;
+    border: 1px solid #C4C4C4;
+    border-radius: 4px;
+}
+
+.clickButton {
+    border-radius: 50%;
+    background-color: grey;
+}
+
+button:hover {
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-transform: uppercase;
+    color: red;
+    transform: scale(1.1);
+    transition: transform 0.3s, color 0.3s;
+}

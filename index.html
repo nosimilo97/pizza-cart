@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js"
+      defer
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Perfect Pizza</h1>
+      <div  x-data="shoppingCart()">
+        
+         <div class=container x-show="pizzaCart">
+          <h2 class="shopping-cart">Shopping Cart</h2>
+         
+          <div>
+              <h3>
+                  Small 
+                  <button class="clickButton" @click="small += 49.99; showContent = true">+</button>
+                  <button class="clickButton" @click=" if (small > 0) small -= 49.99">-</button>
+                  <span x-text="small.toFixed(2)"></span>
+              </h3>
+          </div>
+          
+          <div>
+              <h3>
+                  Medium 
+                  <button class="clickButton" @click="medium += 85.99; showContent = true">+</button>
+                  <button class="clickButton" @click=" if (medium > 0) medium -= 85.99">-</button>
+                  <span x-text="medium.toFixed(2)"></span>
+              </h3>
+          </div>
+          
+          <div>
+              <h3>
+                  Large 
+                  <button class="clickButton" @click="large += 128.99; showContent = true">+</button>
+                  <button class="clickButton" @click="if (large > 0  ) large -= 128.99">-</button>
+                  <span x-text="large.toFixed(2)"></span>
+              </h3>
+          </div>
+          
+          <h3>Total Cost: <span  x-text="total.toFixed(2)"></span></h3>
+          <div x-show="showContent">
+         <button class="checkout"   x-show="!payment &&  total > 0" @click="payment= true" >Checkout</button>
+</div>
+      <div class="paynow" x-show="payment">
+        <em><h2 x-text="message" class="Message">Message goes here</h2></em>
+        Payment amount: <input type="number" x-model="input" class="inputMoney" placeholder="Enter the amount"/>
+        <br>
+        <button class="pay" @click="paymoney()" >Pay</button>
+        </div>  
+      
+         </div>
+        
+      <div class="pizza_prices">
+        <div class="medium_pizza flavor">
+          <h2>Medium Pizza</h2>
+          <img src="medium_pizza.png" width="125" />
+          <h3>R85.99</h3>
+          <div class="details">
+            medium margeritha pizza with 3 toppings max. 2 0r less meat topping.
+            3 or less other toppings.
+       </div>
+          <button @click="medium += 85.99; showContent = true; pizzaCart= true; scrollUp()" class="buy">Buy</button>
+        </div>
+        <div class="large_pizza flavor">
+          <h2>Large Pizza</h2>
+          <img src="large_pizza.png" width="150" />
+          <h3>R128.99</h3>
+          <div class="details">
+            Large margeritha pizza with 3 toppings max. 3 meat topping max. 3
+            or less other toppings
+          </div>
+          <button @click="large += 128.99; showContent =true; pizzaCart= true; scrollUp()" class="buy">Buy</button>
+        </div>
+        <div class="small_pizza flavor">
+          <h2>Small Pizza</h2>
+          <img src="small_pizza.png" width="100" />
+          <h3>R49.99</h3>
+          <div class="details">
+            small pizza with 3 toppings 1 meat topping. 3 or less other toppings
+          </div>
+          <button @click="small += 49.99; showContent = true; pizzaCart= true; scrollUp() " class="buy">Buy</button>
+        </div>
+      </div>
+       </div>
+
+      
+    </div>
+      <section class="contacts-detail">
+        <table>
+          <tr>
+            <td>
+              <h2>Contact details</h2>
+              Contact us at :(021)-541-1000 twitter
+              <div class="special">/fb</div>
+              /insta
+              <div class="special">@perfectpizza</div>
+            </td>
+            <td>
+              <div class="special">Pizza Plaza</div>
+
+              Dough Road
+              <div class="special">Base Town</div>
+            </td>
+          </tr>
+        </table>
+      </section>
+    </main>
+
+   
+
+<script>
+  function shoppingCart() {
+
+      return {
+          small: 0,
+          medium: 0,
+          large: 0,
+          totalCost: 0,
+          showContent: false,
+          payment: false,
+          pizzaCart: false,
+          message: '',
+           input: '',
+          get total() {
+              return this.small + this.medium + this.large;
+          },
+          paymoney() {
+                if (this.input >= this.total) {
+                    this.message = "Enjoy your pizzas!🎉";
+                    this.clearCart();
+                } else {
+                    this.message = "Sorry ☹️- that is not enough money!";
+                    setTimeout(() => this.message = '', 3000);
+                }
+                
+            },
+
+          checkout() {
+            this.payment = true;
+          },
+
+          scrollUp() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            },
+         
+            clearCart() {
+                this.small = 0;
+                this.medium = 0;
+                this.large = 0;
+                this.total = 0;
+                // this.payment = false;
+                this.input = '';
+            }
+          
+          }
+      }
+  
+</script>
+
+
+    
+  </body>
+</html>
