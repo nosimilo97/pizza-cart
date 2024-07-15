@@ -51,7 +51,8 @@
 </div>
       <div class="paynow" x-show="payment">
         <em><h2 x-text="message" class="Message">Message goes here</h2></em>
-        Payment amount: <input type="number" x-model="input" class="inputMoney" placeholder="Enter the amount"/>
+        <label for="payment-amount">Payment amount:</label>
+         <input type="number" x-model="input" class="inputMoney" placeholder="Enter the amount"/>
         <br>
         <button class="pay" @click="paymoney()" >Pay</button>
         </div>  
@@ -67,7 +68,7 @@
             medium margeritha pizza with 3 toppings max. 2 0r less meat topping.
             3 or less other toppings.
        </div>
-          <button @click="medium += 85.99; showContent = true; pizzaCart= true; scrollUp()" class="buy">Buy</button>
+          <button @click="medium += 85.99; showContent = true; pizzaCart= true; scrollUp()   " class="buy">Buy</button>
         </div>
         <div class="large_pizza flavor">
           <h2>Large Pizza</h2>
@@ -128,14 +129,16 @@
           payment: false,
           pizzaCart: false,
           message: '',
-           input: '',
+           input: null,
           get total() {
               return this.small + this.medium + this.large;
           },
           paymoney() {
                 if (this.input >= this.total) {
-                    this.message = "Enjoy your pizzas!🎉";
+                  const change = this.input - this.total;
+                    this.message = 'Enjoy your pizzas!🎉 Your change is R' + change.toFixed(2) + '';
                     this.clearCart();
+                  
                 } else {
                     this.message = "Sorry ☹️- that is not enough money!";
                     setTimeout(() => this.message = '', 3000);
